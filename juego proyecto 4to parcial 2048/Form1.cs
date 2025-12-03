@@ -12,7 +12,7 @@ namespace juego_proyecto_4to_parcial_2048
         private int[,] board = new int[SIZE, SIZE];
         private Random rnd = new Random();
         private int score = 0;
-        private int elapsedSeconds = 0;
+        private int remainingSeconds = 0; // contador regresivo en segundos
         private bool gameOver = false;
         private bool gameWon = false;
 
@@ -36,12 +36,12 @@ namespace juego_proyecto_4to_parcial_2048
                     board[r, c] = 0;
 
             score = 0;
-            elapsedSeconds = 0;
+            remainingSeconds = 10 * 60; // 10 minutos = 600 segundos
             gameOver = false;
             gameWon = false;
             lblResult.Text = "";
             lblScore.Text = "Puntos: 0";
-            lblTime.Text = "Tiempo: 00:00";
+            lblTime.Text = "Tiempo: " + TimeSpan.FromSeconds(remainingSeconds).ToString(@"mm\:ss");
             timerGame.Start();
             SpawnTile();
             SpawnTile();
@@ -55,9 +55,22 @@ namespace juego_proyecto_4to_parcial_2048
 
         private void timerGame_Tick(object sender, EventArgs e)
         {
-            if (gameOver) return;
-            elapsedSeconds++;
-            lblTime.Text = "Tiempo: " + TimeSpan.FromSeconds(elapsedSeconds).ToString(@"mm\:ss");
+            if (gameOver || gameWon) return;
+
+            remainingSeconds--;
+            if (remainingSeconds <= 0)
+            {
+                // tiempo agotado -> pierdes
+                remainingSeconds = 0;
+                lblTime.Text = "Tiempo: 00:00";
+                gameOver = true;
+                timerGame.Stop();
+                lblResult.Text = "Tiempo agotado";
+                MessageBox.Show("Se agotó el tiempo. Has perdido.\nPuntaje: " + score, "Tiempo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            lblTime.Text = "Tiempo: " + TimeSpan.FromSeconds(remainingSeconds).ToString(@"mm\:ss");
         }
 
         private void panelGrid_Paint(object sender, PaintEventArgs e)
