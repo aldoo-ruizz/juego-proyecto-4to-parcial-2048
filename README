@@ -1,0 +1,27 @@
+2048 es un juego de rompecabezas donde mueves fichas con números para que se junten y formen números más grandes. El objetivo es llegar al número 2048, pero puedes seguir jugando si quieres.
+
+Cómo funciona
+
+Tienes un tablero de 4x4.
+
+Cada turno aparece una ficha nueva con número 2 o 4.
+
+Tú mueves todas las fichas a la vez usando arriba, abajo, izquierda o derecha.
+
+Cuando dos fichas del mismo número chocan, se combinan y forman una ficha con el doble (2+2=4, 4+4=8, 8+8=16, etc.).
+
+Cómo se gana
+
+Logras ganar cuando creas una ficha con el número 2048.
+
+Cómo se pierde
+
+Pierdes si el tablero se llena por completo y ya no puedes mover ninguna ficha.
+
+Consejos sencillos
+
+Trata de mantener tu número más grande en una esquina.
+
+Evita mover demasiado hacia arriba (o hacia el lado donde tengas tu ficha mayor).
+
+Combina números cuando sea útil, no solo por hacerlo.
