@@ -37,6 +37,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelGrid = new System.Windows.Forms.Panel();
             this.btnRestart = new System.Windows.Forms.Button();
             this.lblScore = new System.Windows.Forms.Label();
@@ -50,7 +51,7 @@
             // panelGrid
             // 
             this.panelGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(173)))), ((int)(((byte)(160)))));
-this.panelGrid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelGrid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelGrid.Location = new System.Drawing.Point(20, 20);
             this.panelGrid.Name = "panelGrid";
             this.panelGrid.Size = new System.Drawing.Size(420, 420);
@@ -96,7 +97,6 @@ this.panelGrid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(200, 120);
             this.lblResult.TabIndex = 4;
-            this.lblResult.Text = "";
             this.lblResult.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // timerGame
@@ -106,10 +106,11 @@ this.panelGrid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             // 
             // pictureBoxLogo
             // 
-            this.pictureBoxLogo.Location = new System.Drawing.Point(460, 300);
+            this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
+            this.pictureBoxLogo.Location = new System.Drawing.Point(460, 263);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
             this.pictureBoxLogo.Size = new System.Drawing.Size(200, 140);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxLogo.TabIndex = 5;
             this.pictureBoxLogo.TabStop = false;
             // 
